@@ -1,5 +1,6 @@
 <script setup>
 import { createApp } from 'vue';
+import { Axios } from 'axios';
 
 const app = createApp({
   data() {
@@ -8,7 +9,8 @@ const app = createApp({
     };
   },
   mounted() {
-    fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+    Axios
+      .get('https://pokeapi.co/api/v2/pokemon/ditto')
       .then(response => response.json())
       .then(data => this.pokemon = data);
   }
